@@ -31,12 +31,37 @@ function playRound(playerSelection, computerSelection) {
   else if (playerSelection == computerSelection) { return "It's a tie!"; }
 }
 
-// Plays 5 rounds of rock-paper-scissors
+// Prompts player for an input, utilising a while loop to check for valid answers
+function promptPlayer() {
+  let playerInputInitial = prompt("Rock, paper, or scissors?");
+
+  // Breaks the for-loop in game() and returns null when the player cancels the prompt
+  if (playerInputInitial == null) {
+    return playerInputInitial;
+  }
+
+  let playerInput = capitaliseFirstLetter(playerInputInitial);
+  while (!(playerInput == "Rock" || playerInput == "Paper" || playerInput == "Scissors")) {
+    playerInputInitial = prompt("Not a valid answer! Rock, paper, or scissors?");
+    playerInput = capitaliseFirstLetter(playerInputInitial);
+  }
+  return playerInput;
+}
+
+// Loops through 5 rounds of rock-paper-scissors
 function game() {
   for (let i = 0; i < 5; i++) {
-    let playerInputA = prompt("Rock, paper, or scissors?");
-    let playerInput = capitaliseFirstLetter(playerInputA);
-    console.log(playRound(playerInput, computerPlay()));
+    let playerInput = promptPlayer();
+
+    // Ends the game and breaks the for-loop when the player cancels the prompt
+    if (playerInput == null) {
+      alert("Thanks for playing!");
+      console.log("Game ended.")
+      break;
+    }
+    
+    let computerInput = computerPlay();
+    console.log(playRound(playerInput, computerInput));
   }
 }
 
