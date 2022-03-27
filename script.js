@@ -1,11 +1,13 @@
 let results = document.querySelector(".results");
+results.textContent = "Begin.";
 
 let playerScoreDiv = document.querySelector(".player-score");
 let playerScore = 0;
-playerScoreDiv.textContent = `Player score: ${playerScore}`;
+playerScoreDiv.textContent = `${playerScore}`;
+
 let computerScoreDiv = document.querySelector(".computer-score");
 let computerScore = 0;
-computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+computerScoreDiv.textContent = `${computerScore}`;
 
 const buttons = document.querySelectorAll(".selection");
 buttons.forEach(button => button.addEventListener('click', (e) => {
@@ -36,22 +38,24 @@ function playRound(playerSelection, computerSelection) {
   playerSelection == "Scissors" && computerSelection == "Paper") 
   {
     playerScore++;
-    playerScoreDiv.textContent = `Player score: ${playerScore}`;
+    playerScoreDiv.textContent = `${playerScore}`;
     if (playerScore == 5) {
       return "You were first to 5. You win!";
+      // After this is returned, the next time the RPS buttons are pressed, the scores
+      // are reset. This also happens when computerScore == 5.
     } 
-    return `You win! ${playerSelection} beats ${computerSelection}.`;
+    return `${playerSelection} beats ${computerSelection}.`;
   }
   else if (playerSelection == "Rock" && computerSelection == "Paper" ||
   playerSelection == "Paper" && computerSelection == "Scissors" ||
   playerSelection == "Scissors" && computerSelection == "Rock")
   {
     computerScore++;
-    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+    computerScoreDiv.textContent = `${computerScore}`;
     if (computerScore == 5) {
       return "The computer got to 5 first. You lose.";
     }
-    return `You lose. ${computerSelection} beats ${playerSelection}.`;
+    return `${computerSelection} beats ${playerSelection}.`;
   }
   else if (playerSelection == computerSelection) { return "It's a tie!"; }
 }
@@ -59,8 +63,8 @@ function playRound(playerSelection, computerSelection) {
 function resetScore() {
   playerScore = 0;
   computerScore = 0;
-  playerScoreDiv.textContent = `Player score: ${playerScore}`;
-  computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+  playerScoreDiv.textContent = `${playerScore}`;
+  computerScoreDiv.textContent = `${computerScore}`;
 }
 
 // Capitalises the first letter and makes the rest of the characters lowercase

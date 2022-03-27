@@ -1,0 +1,48 @@
+body {
+  background-color: #2F2F2F;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.outcome-display {
+  height: 150px;
+  padding: 50px 0 25px;
+  display: flex;
+}
+
+.player-score,
+.computer-score {
+  font-size: 50px;
+  padding: 0 50px;
+  border: 1px solid red;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.player-score {
+  background-color: #003151;
+}
+
+.computer-score {
+  background-color: #B85300;
+}
+
+.results {
+  font-size: 25px;
+  width: 150px;
+  padding: 0 25px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selection-container {
+  border: 1px solid red;
+  display: flex;
+  
+}
