@@ -50,19 +50,17 @@ function promptPlayer() {
 
 // Loops through 5 rounds of rock-paper-scissors
 function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerInput = promptPlayer();
+  let playerInput = promptPlayer();
 
-    // Ends the game and breaks the for-loop when the player cancels the prompt
-    if (playerInput == null) {
-      alert("Thanks for playing!");
-      console.log("Game ended.")
-      break;
-    }
-    
-    let computerInput = computerPlay();
-    console.log(playRound(playerInput, computerInput));
+  // Ends the game and breaks the for-loop when the player cancels the prompt
+  if (playerInput == null) {
+    alert("Thanks for playing!");
+    console.log("Game ended.")
   }
+  
+  let computerInput = computerPlay();
+  console.log(playRound(playerInput, computerInput));
+  
 }
 
 // Capitalises the first letter and makes the rest of the characters lowercase
@@ -70,5 +68,5 @@ function capitaliseFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
-// Starts the game
-game();
+const buttons = document.querySelectorAll(".selection");
+buttons.forEach(button => button.addEventListener('click', (e) => console.log(playRound(e.target.textContent, computerPlay())) ));
