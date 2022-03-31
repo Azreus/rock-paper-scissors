@@ -1,5 +1,5 @@
 body {
-  background-color: #2F2F2F;
+  background-color: #373737;
   color: white;
   display: flex;
   flex-direction: column;
@@ -8,27 +8,27 @@ body {
 }
 
 .outcome-display {
-  height: 150px;
+  height: 200px;
   padding: 50px 0 25px;
   display: flex;
 }
 
 .player-score,
 .computer-score {
-  font-size: 50px;
-  padding: 0 50px;
-  border: 1px solid red;
-  border-radius: 5px;
+  font-size: 75px;
+  padding: 0 75px;
+  border: 5px solid #616161;
+  border-radius: 25px;
   display: flex;
   align-items: center;
 }
 
 .player-score {
-  background-color: #003151;
+  background-color: #205FA6;
 }
 
 .computer-score {
-  background-color: #B85300;
+  background-color: #984800;
 }
 
 .results {
@@ -42,7 +42,58 @@ body {
 }
 
 .selection-container {
-  border: 1px solid red;
+  background-color: #616161;
+  border: 3px solid #8e8e8e;
+  border-radius: 10px;
+  width: 300px;
+  padding: 10px 10px 20px;
   display: flex;
-  
+  justify-content: space-between;
+}
+
+.selection {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.rock,
+.paper,
+.scissors {
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rock {
+  background-color: #43a047;
+  box-shadow: 0 10px #00701a;
+}
+
+.rock:hover { background-color: #388e3c; }
+.rock:active {
+  box-shadow: 0 5px #00701a;
+  transform: translateY(5px);
+}
+
+.paper {
+  background-color: #f4511e;
+  box-shadow: 0 10px #b91400;
+}
+
+.paper:hover { background-color: #d84315; }
+.paper:active {
+  box-shadow: 0 5px #b91400;
+  transform: translateY(5px);
+}
+
+.scissors {
+  background-color: #1e88e5;
+  box-shadow: 0 10px #005cb2;
+}
+
+.scissors:hover { background-color: #1976d2; }
+.scissors:active {
+  box-shadow: 0 5px #005cb2;
+  transform: translateY(5px);
 }
