@@ -1,5 +1,5 @@
 let results = document.querySelector(".results");
-results.textContent = "Begin.";
+results.textContent = "First to 5 points wins. Begin.";
 
 let playerScoreDiv = document.querySelector(".player-score");
 let playerScore = 0;
@@ -14,9 +14,21 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
   if (playerScore == 5 || computerScore == 5) {
     resetScore();
   }
+  // Adds animation to the results div
+  results.classList.add("results-animate");
+  // Everytime the event triggers, this function resets the animation for the results div
+  resetAnimation();
   results.textContent = playRound(e.target.textContent, computerPlay());
  }
 ));
+
+function resetAnimation() {
+  let animation = document.querySelector(".results-animate");
+  animation.style.animationName = "none";
+  requestAnimationFrame(() => {
+    animation.style.animationName = "";
+  }) 
+}
 
 // Randomly generates a number (0, 1, or 2) and returns an answer based on that
 function computerPlay() {

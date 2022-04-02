@@ -7,14 +7,27 @@ body {
   align-items: center;
 }
 
+.top-row {
+  width: 595px;
+  display: flex;
+  justify-content: center;
+}
+
+.top-row > div {
+  flex: 1;
+  padding: 25px 0 0;
+  text-align: center;
+  font-size: 25px;
+}
+
 .outcome-display {
   height: 200px;
-  padding: 50px 0 25px;
+  padding: 10px 0 25px;
   display: flex;
 }
 
-.player-score,
-.computer-score {
+.player-score-container,
+.computer-score-container {
   font-size: 75px;
   padding: 0 75px;
   border: 5px solid #616161;
@@ -23,12 +36,12 @@ body {
   align-items: center;
 }
 
-.player-score {
-  background-color: #205FA6;
+.player-score-container {
+  background-color: #7b1fa2;
 }
 
-.computer-score {
-  background-color: #984800;
+.computer-score-container {
+  background-color: #c67100;
 }
 
 .results {
@@ -39,6 +52,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.results-animate {
+  animation: results-animation;
+  animation-duration: 0.25s;
+}
+
+@keyframes results-animation {
+  33% { transform: translateY(-5px); }
+  66% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
 }
 
 .selection-container {
